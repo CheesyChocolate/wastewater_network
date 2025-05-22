@@ -2,6 +2,9 @@
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
 [project]
 name = "wastewater-network"
 dynamic = ["version"]
@@ -25,7 +28,12 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+  "pulp>=2.7.0",
+  "networkx>=3.0",
+  "matplotlib>=3.5.0",
+  "numpy>=1.20.0",
+]
 
 [project.urls]
 Documentation = "https://github.com/CheesyChocolate/wastewater-network#readme"
@@ -33,7 +41,10 @@ Issues = "https://github.com/CheesyChocolate/wastewater-network/issues"
 Source = "https://github.com/CheesyChocolate/wastewater-network"
 
 [tool.hatch.version]
-path = "src/wastewater_network/__about__.py"
+path = "src/__about__.py"
+
+[project.scripts]
+wastewater-solver = "src.modules.cli:main"
 
 [tool.hatch.envs.default]
 installer = "uv"
