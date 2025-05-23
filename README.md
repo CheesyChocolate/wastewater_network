@@ -47,14 +47,14 @@ flowchart TD
     N8[8]
     N9((9))
 
-%% Arcs with line style and labels
+%% Arcs
     N1 -->  N2
     N1 -->  N3
     N2 -->  N3
     N2 -->  N4
-    N3 -->  N4
+    N3 -->|gravity| N4
     N3 -.-> N9
-    N4 -->  N3
+    N4 -->|pumped| N3
     N4 -->  N8
     N5 -->  N7
     N5 -->  N8
@@ -65,19 +65,18 @@ flowchart TD
     N8 -.-> N9
 
 %% Styling
-    classDef circleNode stroke:#333,fill:#ccc,stroke-width:2px;
-    classDef squareNode stroke:#000,fill:#fff,stroke-width:2px;
+    classDef circleNode stroke:#333,stroke-width:2px;
+    classDef squareNode stroke:#000,stroke-width:2px;
     class N1,N2,N4,N5,N6,N9 circleNode
     class N3,N7,N8 squareNode
 
 %% Styling arcs
-%% 1. Thick lines: pimped
-%% 2. thin lines: gravity
     linkStyle 1 stroke-width:3px
     linkStyle 2 stroke-width:3px
     linkStyle 5 stroke-width:3px
     linkStyle 6 stroke-width:3px
     linkStyle 8 stroke-width:3px
+    linkStyle 10 stroke-width:3px
     linkStyle 13 stroke-width:3px
 ```
 
